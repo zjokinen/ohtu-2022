@@ -42,6 +42,24 @@ public class StatisticsTest {
     public void tokaTesti(){
         List<Player> p = stats.topScorers(1);
         System.out.println(p.get(0).getName());
-        
+
+    }
+
+    @Test
+    public void kolmasTesti(){
+        List<Player> p = stats.team("DET");
+        assertEquals(1, p.size());
+    }
+
+    @Test
+    public void searchNotFoundReturnsNull(){
+        Player p = stats.search("foo");
+        assertEquals(null, p);
+    }
+
+    @Test
+    public void constructorTest(){
+        Statistics s = new Statistics();
+        s.toString();
     }
 }
