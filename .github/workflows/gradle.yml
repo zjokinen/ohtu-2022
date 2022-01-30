@@ -16,17 +16,17 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.11
-    - name: Change directory
-      run: cd viikko2/gradle-test/
-    - name: Print working directory
-      run: pwd
     - name: Grant execute permission for gradlew
+      working-directory: ./viikko2/gradle-test
       run: chmod +x gradlew
     - name: Test with Gradle
-      run: viikko2/gradle-test/gradlew test
+      working-directory: ./viikko2/gradle-test
+      run: gradlew test
     - name: Code coverage rapost
-      run: viikko2/gradle-test/gradlew jacocoTestReport
+      working-directory: ./viikko2/gradle-test
+      run: gradlew jacocoTestReport
     - name: checkstyle
-      run: viikko2/gradle-test/gradle checkstyleMain
+      working-directory: ./viikko2/gradle-test
+      run: gradle checkstyleMain
     - name: Data to codecov
       run: bash <(curl -s https://codecov.io/bash)
