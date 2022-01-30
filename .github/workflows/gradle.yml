@@ -21,12 +21,12 @@ jobs:
       run: chmod +x gradlew
     - name: Test with Gradle
       working-directory: ./viikko2/gradle-test
-      run: gradlew test
+      run: ./gradlew test
     - name: Code coverage rapost
       working-directory: ./viikko2/gradle-test
-      run: gradlew jacocoTestReport
+      run: ./gradlew jacocoTestReport
     - name: checkstyle
       working-directory: ./viikko2/gradle-test
-      run: gradle checkstyleMain
+      run: ./gradle checkstyleMain
     - name: Data to codecov
       run: bash <(curl -s https://codecov.io/bash)
